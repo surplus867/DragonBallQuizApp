@@ -1,0 +1,57 @@
+<resources>
+    <string name="app_name">Dragon Ball Fan App</string>
+    <!--Header Text -->
+    <string name="how_well_do_you_know_about_goku_let_s_begin_the_quiz">How well do you know about Goku? Let\'s begin the quiz!!</string>
+    <!-- Question 1 -->
+    <string name="q1_who_is_goku_fighting_when_he_first_goes_super_saiyan_2">Q1. Who is Goku fighting when he first goes Super Saiyan 2?</string>
+    <!-- Select the correct answer for question 1 -->
+    <string name="majin_vegeta">Majin Vegeta</string>
+    <string name="cell">Cell</string>
+    <string name="yakon">Yakon</string>
+    <string name="kid_buu">Kid Buu</string>
+    <!-- Question 2 -->
+    <string name="q2_what_new_technique_was_taught_to_goku_when_he_was_on_planet_yardat">Q2. What new technique was taught to Goku when he was on Planet Yardat?</string>
+    <!-- Select the correct answer for question 2 -->
+    <string name="instantaneous_movement">Instantaneous Movement</string>
+    <string name="instant_transmission">Instant Transmission</string>
+    <string name="fusion">Fusion</string>
+    <string name="flight">Flight</string>
+    <!-- Question 3 -->
+    <string name="q3_who_was_goku_battling_when_he_first_became_a_super_saiyan">Q3. Who was Goku battling when he first became a Super Saiyan?</string>
+    <!-- Select the correct answer for question 3 -->
+    <string name="captain_ginyu">Captain Ginyu</string>
+    <string name="android_19">Android #19</string>
+    <string name="frieza">Frieza</string>
+    <string name="lord_slug">Lord Slug</string>
+    <!-- Question 4 -->
+    <string name="q4_who_was_the_first_villain_that_goku_defeated_on_namek">Q4. Who was the first villain that Goku defeated on Namek?</string>
+    <!-- Select the correct answer for question 4 -->
+    <string name="recoome">Recoome</string>
+    <string name="broly">Broly</string>
+    <string name="burter">Burter</string>
+    <string name="guldo">Guldo</string>
+    <!-- Question 5 -->
+    <string name="q5_who_kills_goku_for_the_first_time">Q5. Who kills Goku for the first time?</string>
+    <!-- Select the correct answer for question 5 -->
+    <string name="piccolo">piccolo</string>
+    <string name="krillin">Krillin</string>
+    <string name="tien_shinhan">Tien_Shinhan</string>
+    <string name="king_chappa">King Chappa</string>
+    <!-- Question 6 -->
+    <string name="q6_in_the_21st_world_martial_arts_tournament_who_beats_goku_in_the_final">Q6. In the 21st World Martial Arts Tournament, who beats Goku in the final?</string>
+    <!-- Select the correct answer for question 6 -->
+    <string name="nam">Nam</string>
+    <string name="chiaotzu">Chiaotzu</string>
+    <string name="jackie_chun">Jackie Chun</string>
+    <string name="yamcha">Yamcha</string>
+    <!-- Question 7 -->
+    <string name="q7_what_s_the_first_energy_technique_that_goku_ever_learns">Q7. What\'s the first energy technique that Goku ever learns?</string>
+    <!-- Select the correct answer for question 7 -->
+    <string name="kamehameha">Kamehameha</string>
+    <string name="spirit_bomb">Spirit Bomb</string>
+    <string name="kaio_ken">Kaio-ken</string>
+    <string name="galick_gun">Galick Gun</string>
+    <!-- Submit the answers -->
+    <string name="submit_answers">submit answers</string>
+
+</resources>
