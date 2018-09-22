@@ -16,6 +16,8 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
     // Track the score of the quiz
     int baseScore = 0;
+    // Track the count of the score
+    int count = 0;
     // Radio Groups
     RadioGroup rg1;
     RadioGroup rg2;
@@ -24,16 +26,12 @@ public class MainActivity extends AppCompatActivity {
     RadioGroup rg5;
     RadioGroup rg6;
     RadioGroup rg7;
-    // Radio Buttons
-    RadioButton rb1;
-    RadioButton rb6;
-    RadioButton rb11;
-    RadioButton rb13;
-    RadioButton rb17;
-    RadioButton rb23;
-    RadioButton rb25;
     // Submit Button
     Button btn1;
+    // Score TextView
+    TextView scoreView;
+    // Check if the button is clicked or not
+    boolean isButtonClicked = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,129 +47,173 @@ public class MainActivity extends AppCompatActivity {
         rg5 = (RadioGroup) findViewById(R.id.rg5);
         rg6 = (RadioGroup) findViewById(R.id.rg6);
         rg7 = (RadioGroup) findViewById(R.id.rg7);
+        // SubmitAnswer Button
         Button btn1 = (Button) findViewById(R.id.btn1);
-        rg1.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
+        // Score TextView
+        scoreView = (TextView) findViewById(R.id.score_text_view);
+        //------------------------------------------------------------------------------------------
+        // Question 1 - Correct Answer is "Majin Vegeta"
+        //------------------------------------------------------------------------------------------
+        rg1.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
+        {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 // checkedId is the RadioButton selected
-                RadioButton question1a = findViewById(R.id.rb1);
-
-                if (question1a.isChecked()) {
-                    baseScore = baseScore++;
-
+                RadioButton rb = (RadioButton) findViewById(checkedId);
+                count++;
+                // if the selected answer is "Majin Vegeta"
+                if (rb.getText().equals(getResources().getString(R.string.majin_vegeta))) {
+                // increase the baseScore by 1 point
+                    baseScore++;
+                // if the wrong answer is selected
                 } else {
-                    // Minus one point if the wrong answer is selected
-                    baseScore = baseScore - 1;
-
+                // decrease the baseScore by 1 point
+                    baseScore--;
                 }
             }
-        });
-
-        rg2.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
+            });
+        //------------------------------------------------------------------------------------------
+        //  Question 2 - Correct Answer is "Instant Transmission"
+        //------------------------------------------------------------------------------------------
+        rg2.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
+        {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                // checkedId is the RadioButton Selected
-                RadioButton question2b = findViewById(R.id.rb6);
-
-                if (question2b.isChecked()) {
-                    baseScore = baseScore++;
-
+                // checkedId is the RadioButton selected
+                RadioButton rb = (RadioButton) findViewById(checkedId);
+                count++;
+                // if the selected answer is "Instant Transmission"
+                if (rb.getText().equals(getResources().getString(R.string.instant_transmission))) {
+                // increase the baseScore by 1 point
+                    baseScore++;
+                // if the wrong answer is selected
                 } else {
-                    baseScore = baseScore - 1;
-
-
+                // decrease the baseScore by 1 point
+                    baseScore--;
                 }
             }
         });
-
-        rg3.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
+        //------------------------------------------------------------------------------------------
+        //  Question 3 - Correct Answer is "Frieza"
+        //------------------------------------------------------------------------------------------
+        rg3.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
+        {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                // checkedId is the RadioButton Selected
-                RadioButton question3C = findViewById(R.id.rb11);
-
-                if (question3C.isChecked()) {
-                    baseScore = baseScore++;
-
+                // checkedId is the RadioButton selected
+                RadioButton rb = (RadioButton) findViewById(checkedId);
+                count++;
+                // if the selected answer is "Frieza"
+                if (rb.getText().equals(getResources().getString(R.string.frieza))) {
+                // increase the baseScore by 1 point
+                    baseScore++;
+                // if the wrong answer is selected
                 } else {
-                    baseScore = baseScore - 1;
-
-
+                // decrease the baseScore by 1 point
+                    baseScore--;
                 }
             }
         });
-
-        rg4.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
+        //------------------------------------------------------------------------------------------
+        //  Question 4 - Correct Answer is "Recoome"
+        //------------------------------------------------------------------------------------------
+        rg4.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
+        {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                // checkedId is the RadioButton Selected
-                RadioButton question4A = findViewById(R.id.rb13);
-
-                if (question4A.isChecked()) {
-                    baseScore = baseScore++;
-
+                // checkedId is the RadioButton selected
+                RadioButton rb = (RadioButton) findViewById(checkedId);
+                count++;
+                // if the selected answer is "Recoome"
+                if (rb.getText().equals(getResources().getString(R.string.recoome))) {
+                // increase the baseScore by 1 point
+                    baseScore++;
+                // if the wrong answer is selected
                 } else {
-                    baseScore = baseScore - 1;
-
-
+                // decrease the baseScore by 1 point
+                    baseScore--;
                 }
             }
         });
-
-        rg5.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
+        //------------------------------------------------------------------------------------------
+        //  Question 5 - Correct Answer is "Piccolo"
+        //------------------------------------------------------------------------------------------
+        rg5.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
+        {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                // checkedId is the RadioButton Selected
-                RadioButton question5A = findViewById(R.id.rb17);
-
-                if (question5A.isChecked()) {
-                    baseScore = baseScore++;
-
+                // checkedId is the RadioButton selected
+                RadioButton rb = (RadioButton) findViewById(checkedId);
+                count++;
+                // if the selected answer is "Piccolo"
+                if (rb.getText().equals(getResources().getString(R.string.piccolo))) {
+                // increase the baseScore by 1 point
+                    baseScore++;
+                // if the wrong answer is selected
                 } else {
-                    baseScore = baseScore -1;
-
-
+                // decrease the baseScore by 1 point
+                    baseScore--;
                 }
             }
         });
-
-        rg6.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
+        //------------------------------------------------------------------------------------------
+        //  Question 6 - Correct Answer is "Jackie Chun"
+        //------------------------------------------------------------------------------------------
+        rg6.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
+        {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                // checkedId is the RadioButton Selected
-                RadioButton question6C = findViewById(R.id.rb23);
-
-                if (question6C.isChecked()) {
-                     baseScore = baseScore++;
-                    } else {
-                    baseScore = baseScore - 1;
-
+                // checkedId is the RadioButton selected
+                RadioButton rb = (RadioButton) findViewById(checkedId);
+                count++;
+                // if the selected answer is "Jackie Chun"
+                if (rb.getText().equals(getResources().getString(R.string.jackie_chun))) {
+                // increase the baseScore by 1 point
+                    baseScore++;
+                // if the wrong answer is selected
+                } else {
+                // decrease the baseScore by 1 point
+                    baseScore--;
                 }
-
             }
         });
-
-        rg7.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
+        //------------------------------------------------------------------------------------------
+        //  Question 7 - Correct Answer is "Kamehameha"
+        //------------------------------------------------------------------------------------------
+        rg7.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
+        {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                // checkedId is the RadioButton Selected
-                RadioButton question7A = findViewById(R.id.rb25);
-
-                if (question7A.isChecked()) {
-                    baseScore = baseScore++;
-                    } else {
-                    baseScore = baseScore - 1;
-
+                // checkedId is the RadioButton selected
+                count++;
+                RadioButton rb = (RadioButton) findViewById(checkedId);
+                // if the correct answer selected is "Kamehameha"
+                if (rb.getText().equals(getResources().getString(R.string.kamehameha))) {
+                // increase the baseScore by 1 point
+                    baseScore++;
+                // if the wrong answer is selected
+                } else {
+                // decrease the baseScore by 1 point
+                    baseScore--;
                 }
             }
         });
-
-        // Button
-
+        //------------------------------------------------------------------------------------------
+        //  Submit Answers Button
+        //------------------------------------------------------------------------------------------
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                displayScore(baseScore);
+                // when the submitAnswer button has not been clicked yet
+                if(!isButtonClicked) {
+                    // when all the questions are not answered
+                    if (count < 7) {
+                        Toast.makeText(getApplicationContext(), "You need to answer all the questions", Toast.LENGTH_SHORT).show();
+
+                    } else {
+                        // when all the questions are answered
+                        isButtonClicked = true;
+                        displayScore(baseScore);
+                    }
+                }else{
+                    // refresh activity
+                    Intent intent = getIntent();
+                    finish();
+                    startActivity(intent);
+                }
             }
         });
 
@@ -179,17 +221,10 @@ public class MainActivity extends AppCompatActivity {
          * This method is called when the submitAnswer button is clicked.
          */
     }
-       /*   public void submitAnswers (View view) {
-
-          displayScore(baseScore);
-
-
-          }*/
-
-
         public void displayScore (int score){
-            TextView scoreView = (TextView) findViewById(R.id.score_text_view);
+
             scoreView.setText(String.valueOf(score));
         }
 
     }
+
