@@ -14,7 +14,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+    // Track the score of the quiz
     int baseScore = 0;
+    // Radio Groups
     RadioGroup rg1;
     RadioGroup rg2;
     RadioGroup rg3;
@@ -22,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     RadioGroup rg5;
     RadioGroup rg6;
     RadioGroup rg7;
+    // Radio Buttons
     RadioButton rb1;
     RadioButton rb6;
     RadioButton rb11;
@@ -29,8 +32,8 @@ public class MainActivity extends AppCompatActivity {
     RadioButton rb17;
     RadioButton rb23;
     RadioButton rb25;
+    // Submit Button
     Button btn1;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,28 +49,21 @@ public class MainActivity extends AppCompatActivity {
         rg5 = (RadioGroup) findViewById(R.id.rg5);
         rg6 = (RadioGroup) findViewById(R.id.rg6);
         rg7 = (RadioGroup) findViewById(R.id.rg7);
-        rg1.clearCheck();
-        rg2.clearCheck();
-        rg3.clearCheck();
-        rg4.clearCheck();
-        rg5.clearCheck();
-        rg6.clearCheck();
-        rg7.clearCheck();
-        // Button
-        btn1 = (Button) findViewById(R.id.btn1);
-
+        Button btn1 = (Button) findViewById(R.id.btn1);
         rg1.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 // checkedId is the RadioButton selected
-                RadioButton question1aChecked = (RadioButton) findViewById(R.id.rb1);
+                RadioButton question1a = findViewById(R.id.rb1);
 
-                if (question1aChecked.isChecked()) {
-                    baseScore = baseScore + 1;
+                if (question1a.isChecked()) {
+                    baseScore = baseScore++;
+
                 } else {
-                }
-                baseScore = 0;
+                    // Minus one point if the wrong answer is selected
+                    baseScore = baseScore - 1;
 
+                }
             }
         });
 
@@ -75,14 +71,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 // checkedId is the RadioButton Selected
-                RadioButton question2bChecked = (RadioButton) findViewById(R.id.rb6);
+                RadioButton question2b = findViewById(R.id.rb6);
 
-                if (question2bChecked.isChecked()) {
-                    baseScore = baseScore + 1;
+                if (question2b.isChecked()) {
+                    baseScore = baseScore++;
+
                 } else {
+                    baseScore = baseScore - 1;
+
 
                 }
-                baseScore = 0;
             }
         });
 
@@ -90,14 +88,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 // checkedId is the RadioButton Selected
-                RadioButton question3cChecked = (RadioButton) findViewById(R.id.rb11);
+                RadioButton question3C = findViewById(R.id.rb11);
 
-                if (question3cChecked.isChecked()) {
-                    baseScore = baseScore + 1;
+                if (question3C.isChecked()) {
+                    baseScore = baseScore++;
+
                 } else {
+                    baseScore = baseScore - 1;
+
 
                 }
-                baseScore = 0;
             }
         });
 
@@ -105,14 +105,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 // checkedId is the RadioButton Selected
-                RadioButton question4aChecked = (RadioButton) findViewById(R.id.rb13);
+                RadioButton question4A = findViewById(R.id.rb13);
 
-                if (question4aChecked.isChecked()) {
-                    baseScore = baseScore + 1;
+                if (question4A.isChecked()) {
+                    baseScore = baseScore++;
+
                 } else {
+                    baseScore = baseScore - 1;
+
 
                 }
-                baseScore = 0;
             }
         });
 
@@ -120,14 +122,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 // checkedId is the RadioButton Selected
-                RadioButton question5aChecked = (RadioButton) findViewById(R.id.rb17);
+                RadioButton question5A = findViewById(R.id.rb17);
 
-                if (question5aChecked.isChecked()) {
-                    baseScore = baseScore + 1;
+                if (question5A.isChecked()) {
+                    baseScore = baseScore++;
+
                 } else {
+                    baseScore = baseScore -1;
+
 
                 }
-                baseScore = 0;
             }
         });
 
@@ -135,14 +139,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 // checkedId is the RadioButton Selected
-                RadioButton question6cChecked = (RadioButton) findViewById(R.id.rb23);
+                RadioButton question6C = findViewById(R.id.rb23);
 
-                if (question6cChecked.isChecked()) {
-                    baseScore = baseScore + 1;
-                } else {
+                if (question6C.isChecked()) {
+                     baseScore = baseScore++;
+                    } else {
+                    baseScore = baseScore - 1;
 
                 }
-                baseScore = 0;
+
             }
         });
 
@@ -150,42 +155,41 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 // checkedId is the RadioButton Selected
-                RadioButton question7aChecked = (RadioButton) findViewById(R.id.rb25);
+                RadioButton question7A = findViewById(R.id.rb25);
 
-                if (question7aChecked.isChecked()) {
-                    baseScore = baseScore + 1;
-                } else {
+                if (question7A.isChecked()) {
+                    baseScore = baseScore++;
+                    } else {
+                    baseScore = baseScore - 1;
 
                 }
-                baseScore = 0;
             }
         });
+
+        // Button
+
+        btn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                displayScore(baseScore);
+            }
+        });
+
+        /**
+         * This method is called when the submitAnswer button is clicked.
+         */
     }
+       /*   public void submitAnswers (View view) {
 
-    /**
-     * This method is called when the submit answers button is clicked.
-     */
-    public void submitAnswers(View view) {
+          displayScore(baseScore);
 
-        // Type  on the Name Field
-        EditText playerName = (EditText) findViewById(R.id.player_name);
-        String name = playerName.getText().toString();
 
+          }*/
+
+
+        public void displayScore (int score){
+            TextView scoreView = (TextView) findViewById(R.id.score_text_view);
+            scoreView.setText(String.valueOf(score));
+        }
 
     }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
