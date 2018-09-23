@@ -28,9 +28,9 @@ public class MainActivity extends AppCompatActivity {
     RadioGroup rg4;
     RadioGroup rg5;
     // String Question
-    String question [] = {"In the 21st World Martial Arts Tournment,who beats Goku in the final?"};
+    String question = "In the 21st World Martial Arts Tournment,who beats Goku in the final?";
     // String Answer
-    String answer [] = {"Jackie Chun"};
+    String answer = "Jackie Chun";
     // Check Boxes
     CheckBox   chk1;
     CheckBox   chk2;
@@ -60,9 +60,9 @@ public class MainActivity extends AppCompatActivity {
         chk2 = (CheckBox) findViewById(R.id.chk2);
         chk3 = (CheckBox) findViewById(R.id.chk3);
         chk4 = (CheckBox) findViewById(R.id.chk4);
-        // Edit Text
-        EditText userAnswer= (EditText) findViewById(R.id.user_answer);
-        String answer = userAnswer.getText().toString();
+        //
+        final EditText userAnswer = (EditText) findViewById(R.id.user_answer);
+        final String answer = userAnswer.getText().toString();
         // SubmitAnswer Button
         Button btn1 = (Button) findViewById(R.id.btn1);
         // Score TextView
@@ -170,7 +170,19 @@ public class MainActivity extends AppCompatActivity {
         //------------------------------------------------------------------------------------------
         //  Question 6 - Correct Answer is "Jackie Chun"
         //------------------------------------------------------------------------------------------
+          userAnswer.setOnClickListener(new View.OnClickListener() {
+              @Override
+              public void onClick(View v) {
+                  count++;
+                  if ("Jackie Chun".equals(answer)) {
+                      baseScore++;
+                  }else {
+                      baseScore--;
 
+                  }
+              }
+
+          });
 
         //------------------------------------------------------------------------------------------
         //  Question 7 - Correct Answer is "Kamehameha"
