@@ -18,9 +18,9 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     // Track the score of the quiz
-    int baseScore = 0;
+    int baseScore ;
     // Track the count of the score
-    int count = 0;
+    int count ;
     // Radio Groups
     RadioGroup rg1;
     RadioGroup rg2;
@@ -62,6 +62,8 @@ public class MainActivity extends AppCompatActivity {
         chk4 = (CheckBox) findViewById(R.id.chk4);
         //
         userAnswer = (EditText) findViewById(R.id.user_answer);
+        baseScore =0;
+        count = 0;
         // SubmitAnswer Button
         btn1 = (Button) findViewById(R.id.btn1);
         // Score TextView
@@ -168,7 +170,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 count++;
-                Toast.makeText(getApplicationContext(), "Edit Text Clicked", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),String.valueOf(count), Toast.LENGTH_SHORT).show();
 
                 }
                 });
@@ -223,18 +225,20 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 // when the submitAnswer button has not been clicked yet
                 answer = userAnswer.getText().toString();
-                if ("Jackie Chun".equalsIgnoreCase(answer)) {
-                            baseScore++;
-                        } else {
-                            baseScore--;
-
-                        }
-                        if (!isButtonClicked) {
+                if (!isButtonClicked) {
                             // when all the questions are not answered
                             if (count < 7) {
-                                Toast.makeText(getApplicationContext(), "You need to answer all the questions", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), "You need to answer all the questions"+ String.valueOf(count), Toast.LENGTH_SHORT).show();
 
                             } else {
+
+                                if (answer.equalsIgnoreCase("Jackie Chun")) {
+                                    baseScore++;
+                                } else {
+                                    baseScore--;
+
+                                }
+
                                 // when all the questions are answered
                                 isButtonClicked = true;
                                 displayScore(baseScore);
