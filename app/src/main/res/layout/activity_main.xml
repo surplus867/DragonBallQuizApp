@@ -10,7 +10,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     tools:context=".MainActivity"
     tools:layout_editor_absoluteY="81dp">
@@ -34,13 +34,14 @@
         android:id="@+id/header_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginRight="32dp"
-        android:layout_marginStart="32dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginLeft="48dp"
+        android:layout_marginRight="48dp"
+        android:layout_marginStart="48dp"
         android:layout_marginTop="16dp"
         android:text="@string/how_well_do_you_know_about_goku_let_s_begin_the_quiz"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.482"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
@@ -305,8 +306,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rg5" />
 
-    <RadioGroup
-        android:id="@+id/rg6"
+    <EditText
+        android:id="@+id/user_answer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
@@ -314,38 +315,11 @@
         android:layout_marginRight="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
+        android:hint="@string/type_your_answer_here"
+        android:inputType="textMultiLine"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/question_6_text_view">
-
-        <RadioButton
-            android:id="@+id/rb21"
-            style="@style/RadioButtonStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/nam" />
-
-        <RadioButton
-            android:id="@+id/rb22"
-            style="@style/RadioButtonStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/chiaotzu" />
-
-        <RadioButton
-            android:id="@+id/rb23"
-            style="@style/RadioButtonStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/jackie_chun" />
-
-        <RadioButton
-            android:id="@+id/rb24"
-            style="@style/RadioButtonStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/yamcha" />
-    </RadioGroup>
+        app:layout_constraintTop_toBottomOf="@+id/question_6_text_view" />
 
     <TextView
         android:id="@+id/question_7_text_view"
@@ -355,50 +329,74 @@
         android:layout_marginRight="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="@string/q7_what_s_the_first_energy_technique_that_goku_ever_learns"
+        android:text="@string/q7_what_is_the_first_energy_technique_that_goku_ever_learns"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rg6" />
+        app:layout_constraintTop_toBottomOf="@+id/user_answer" />
 
-    <RadioGroup
-        android:id="@+id/rg7"
-        android:layout_width="match_parent"
+    <CheckBox
+        android:id="@+id/chk1"
+        style="@style/RadioButtonStyle"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
+        android:text="@string/kamehameha"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/question_7_text_view">
+        app:layout_constraintTop_toBottomOf="@+id/question_7_text_view" />
 
-        <RadioButton
-            android:id="@+id/rb25"
-            style="@style/RadioButtonStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/kamehameha" />
+    <CheckBox
+        android:id="@+id/chk2"
+        style="@style/RadioButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/spirit_bomb"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chk1" />
 
-        <RadioButton
-            android:id="@+id/rb26"
-            style="@style/RadioButtonStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/spirit_bomb" />
-        <RadioButton
-            android:id="@+id/rb27"
-            style="@style/RadioButtonStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/kaio_ken" />
-        <RadioButton
-            android:id="@+id/rb28"
-            style="@style/RadioButtonStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/galick_gun" />
-    </RadioGroup>
+    <CheckBox
+        android:id="@+id/chk3"
+        style="@style/RadioButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/kaio_ken"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chk2" />
+
+    <CheckBox
+        android:id="@+id/chk4"
+        style="@style/RadioButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/galick_gun"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chk3" />
 
     <TextView
         android:id="@+id/score_text_view"
@@ -413,7 +411,7 @@
         android:textSize="56sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rg7" />
+        app:layout_constraintTop_toBottomOf="@+id/chk4" />
 
     <Button
         android:id="@+id/btn1"

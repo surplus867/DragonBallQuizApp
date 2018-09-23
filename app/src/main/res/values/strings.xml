@@ -39,17 +39,14 @@
     <string name="king_chappa">King Chappa</string>
     <!-- Question 6 -->
     <string name="q6_in_the_21st_world_martial_arts_tournament_who_beats_goku_in_the_final">Q6. In the 21st World Martial Arts Tournament, who beats Goku in the final?</string>
-    <!-- Select the correct answer for question 6 -->
-    <string name="nam">Nam</string>
-    <string name="chiaotzu">Chiaotzu</string>
-    <string name="jackie_chun">Jackie Chun</string>
-    <string name="yamcha">Yamcha</string>
+    <!-- Type your answer [CHAR LIMIT == 10]-->
+    <string name="type_your_answer_here">Type your answer here</string>
     <!-- Question 7 -->
-    <string name="q7_what_s_the_first_energy_technique_that_goku_ever_learns">Q7. What\'s the first energy technique that Goku ever learns?</string>
+    <string name="q7_what_is_the_first_energy_technique_that_goku_ever_learns">Q7. What is the first energy technique that Goku ever learns?</string>
     <!-- Select the correct answer for question 7 -->
-    <string name="kamehameha">Kamehameha</string>
+    <string name="kamehameha">kamehameha</string>
     <string name="spirit_bomb">Spirit Bomb</string>
-    <string name="kaio_ken">Kaio-ken</string>
+    <string name="kaio_ken">Kaio Ken</string>
     <string name="galick_gun">Galick Gun</string>
     <!-- Submit the answers -->
     <string name="submit_answers">submit answers</string>

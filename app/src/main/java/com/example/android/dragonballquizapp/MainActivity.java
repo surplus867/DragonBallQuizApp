@@ -1,5 +1,6 @@
 package com.example.android.dragonballquizapp;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -7,6 +8,8 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -24,8 +27,15 @@ public class MainActivity extends AppCompatActivity {
     RadioGroup rg3;
     RadioGroup rg4;
     RadioGroup rg5;
-    RadioGroup rg6;
-    RadioGroup rg7;
+    // String Question
+    String question [] = {"In the 21st World Martial Arts Tournment,who beats Goku in the final?"};
+    // String Answer
+    String answer [] = {"Jackie Chun"};
+    // Check Boxes
+    CheckBox   chk1;
+    CheckBox   chk2;
+    CheckBox   chk3;
+    CheckBox   chk4;
     // Submit Button
     Button btn1;
     // Score TextView
@@ -45,8 +55,14 @@ public class MainActivity extends AppCompatActivity {
         rg3 = (RadioGroup) findViewById(R.id.rg3);
         rg4 = (RadioGroup) findViewById(R.id.rg4);
         rg5 = (RadioGroup) findViewById(R.id.rg5);
-        rg6 = (RadioGroup) findViewById(R.id.rg6);
-        rg7 = (RadioGroup) findViewById(R.id.rg7);
+        // CheckBox Groups
+        chk1 = (CheckBox) findViewById(R.id.chk1);
+        chk2 = (CheckBox) findViewById(R.id.chk2);
+        chk3 = (CheckBox) findViewById(R.id.chk3);
+        chk4 = (CheckBox) findViewById(R.id.chk4);
+        // Edit Text
+        EditText userAnswer= (EditText) findViewById(R.id.user_answer);
+        String answer = userAnswer.getText().toString();
         // SubmitAnswer Button
         Button btn1 = (Button) findViewById(R.id.btn1);
         // Score TextView
@@ -154,43 +170,25 @@ public class MainActivity extends AppCompatActivity {
         //------------------------------------------------------------------------------------------
         //  Question 6 - Correct Answer is "Jackie Chun"
         //------------------------------------------------------------------------------------------
-        rg6.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
-        {
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                // checkedId is the RadioButton selected
-                RadioButton rb = (RadioButton) findViewById(checkedId);
-                count++;
-                // if the selected answer is "Jackie Chun"
-                if (rb.getText().equals(getResources().getString(R.string.jackie_chun))) {
-                // increase the baseScore by 1 point
-                    baseScore++;
-                // if the wrong answer is selected
-                } else {
-                // decrease the baseScore by 1 point
-                    baseScore--;
-                }
-            }
-        });
+
+
         //------------------------------------------------------------------------------------------
         //  Question 7 - Correct Answer is "Kamehameha"
         //------------------------------------------------------------------------------------------
-        rg7.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
-        {
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                // checkedId is the RadioButton selected
-                count++;
-                RadioButton rb = (RadioButton) findViewById(checkedId);
-                // if the correct answer selected is "Kamehameha"
-                if (rb.getText().equals(getResources().getString(R.string.kamehameha))) {
-                // increase the baseScore by 1 point
-                    baseScore++;
-                // if the wrong answer is selected
-                } else {
-                // decrease the baseScore by 1 point
-                    baseScore--;
-                }
-            }
-        });
+          chk1.setOnClickListener(new View.OnClickListener() {
+              @Override
+              public void onClick(View v) {
+                  count++;
+                  if(chk1.isChecked()) {
+                      baseScore++;
+                  }
+                  else if (!chk1.isChecked())
+                  {
+                      baseScore--;
+                  }
+              }
+          });
+
         //------------------------------------------------------------------------------------------
         //  Submit Answers Button
         //------------------------------------------------------------------------------------------
@@ -207,6 +205,8 @@ public class MainActivity extends AppCompatActivity {
                         // when all the questions are answered
                         isButtonClicked = true;
                         displayScore(baseScore);
+                        Toast.makeText (MainActivity.this,"Correct Answers:" + baseScore + " /7",
+                                Toast.LENGTH_LONG).show();
                     }
                 }else{
                     // refresh activity
@@ -226,5 +226,9 @@ public class MainActivity extends AppCompatActivity {
             scoreView.setText(String.valueOf(score));
         }
 
-    }
+   }
+
+
+
+
 
