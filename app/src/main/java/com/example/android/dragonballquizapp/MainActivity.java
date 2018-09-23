@@ -69,39 +69,37 @@ public class MainActivity extends AppCompatActivity {
         //------------------------------------------------------------------------------------------
         // Question 1 - Correct Answer is "Majin Vegeta"
         //------------------------------------------------------------------------------------------
-        rg1.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
-        {
+        rg1.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 // checkedId is the RadioButton selected
                 RadioButton rb = (RadioButton) findViewById(checkedId);
                 count++;
                 // if the selected answer is "Majin Vegeta"
                 if (rb.getText().equals(getResources().getString(R.string.majin_vegeta))) {
-                // increase the baseScore by 1 point
+                    // increase the baseScore by 1 point
                     baseScore++;
-                // if the wrong answer is selected
+                    // if the wrong answer is selected
                 } else {
-                // decrease the baseScore by 1 point
+                    // decrease the baseScore by 1 point
                     baseScore--;
                 }
             }
-            });
+        });
         //------------------------------------------------------------------------------------------
         //  Question 2 - Correct Answer is "Instant Transmission"
         //------------------------------------------------------------------------------------------
-        rg2.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
-        {
+        rg2.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 // checkedId is the RadioButton selected
                 RadioButton rb = (RadioButton) findViewById(checkedId);
                 count++;
                 // if the selected answer is "Instant Transmission"
                 if (rb.getText().equals(getResources().getString(R.string.instant_transmission))) {
-                // increase the baseScore by 1 point
+                    // increase the baseScore by 1 point
                     baseScore++;
-                // if the wrong answer is selected
+                    // if the wrong answer is selected
                 } else {
-                // decrease the baseScore by 1 point
+                    // decrease the baseScore by 1 point
                     baseScore--;
                 }
             }
@@ -109,19 +107,18 @@ public class MainActivity extends AppCompatActivity {
         //------------------------------------------------------------------------------------------
         //  Question 3 - Correct Answer is "Frieza"
         //------------------------------------------------------------------------------------------
-        rg3.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
-        {
+        rg3.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 // checkedId is the RadioButton selected
                 RadioButton rb = (RadioButton) findViewById(checkedId);
                 count++;
                 // if the selected answer is "Frieza"
                 if (rb.getText().equals(getResources().getString(R.string.frieza))) {
-                // increase the baseScore by 1 point
+                    // increase the baseScore by 1 point
                     baseScore++;
-                // if the wrong answer is selected
+                    // if the wrong answer is selected
                 } else {
-                // decrease the baseScore by 1 point
+                    // decrease the baseScore by 1 point
                     baseScore--;
                 }
             }
@@ -129,19 +126,18 @@ public class MainActivity extends AppCompatActivity {
         //------------------------------------------------------------------------------------------
         //  Question 4 - Correct Answer is "Recoome"
         //------------------------------------------------------------------------------------------
-        rg4.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
-        {
+        rg4.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 // checkedId is the RadioButton selected
                 RadioButton rb = (RadioButton) findViewById(checkedId);
                 count++;
                 // if the selected answer is "Recoome"
                 if (rb.getText().equals(getResources().getString(R.string.recoome))) {
-                // increase the baseScore by 1 point
+                    // increase the baseScore by 1 point
                     baseScore++;
-                // if the wrong answer is selected
+                    // if the wrong answer is selected
                 } else {
-                // decrease the baseScore by 1 point
+                    // decrease the baseScore by 1 point
                     baseScore--;
                 }
             }
@@ -149,19 +145,18 @@ public class MainActivity extends AppCompatActivity {
         //------------------------------------------------------------------------------------------
         //  Question 5 - Correct Answer is "Piccolo"
         //------------------------------------------------------------------------------------------
-        rg5.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
-        {
+        rg5.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 // checkedId is the RadioButton selected
                 RadioButton rb = (RadioButton) findViewById(checkedId);
                 count++;
                 // if the selected answer is "Piccolo"
                 if (rb.getText().equals(getResources().getString(R.string.piccolo))) {
-                // increase the baseScore by 1 point
+                    // increase the baseScore by 1 point
                     baseScore++;
-                // if the wrong answer is selected
+                    // if the wrong answer is selected
                 } else {
-                // decrease the baseScore by 1 point
+                    // decrease the baseScore by 1 point
                     baseScore--;
                 }
             }
@@ -169,21 +164,9 @@ public class MainActivity extends AppCompatActivity {
         //------------------------------------------------------------------------------------------
         //  Question 6 - Correct Answer is "Jackie Chun"
         //------------------------------------------------------------------------------------------
-          userAnswer.setOnClickListener(new View.OnClickListener() {
-              @Override
-              public void onClick(View v) {
-                  answer= userAnswer.getText().toString();
-                  count++;
-                  if ("Jackie Chun".equalsIgnoreCase(answer)) {
-                      baseScore++;
-                  }else {
-                      baseScore--;
-                      Toast.makeText(getApplicationContext(), "You need to answer all the questions", Toast.LENGTH_SHORT).show();
 
-                  }
-              }
+          count++;
 
-          });
 
         //------------------------------------------------------------------------------------------
         //  Question 7 - Correct Answer is "Kamehameha"
@@ -209,39 +192,49 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // when the submitAnswer button has not been clicked yet
-                if(!isButtonClicked) {
-                    // when all the questions are not answered
-                    if (count < 7) {
-                        Toast.makeText(getApplicationContext(), "You need to answer all the questions", Toast.LENGTH_SHORT).show();
+                userAnswer.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        answer = userAnswer.getText().toString();
 
-                    } else {
-                        // when all the questions are answered
-                        isButtonClicked = true;
-                        displayScore(baseScore);
-                        Toast.makeText (MainActivity.this,"Correct Answers:" + baseScore + " /7",
-                                Toast.LENGTH_LONG).show();
+                        if ("Jackie Chun".equalsIgnoreCase(answer)) {
+                            baseScore++;
+                        } else {
+                            baseScore--;
+                            Toast.makeText(getApplicationContext(), "You need to answer all the questions", Toast.LENGTH_SHORT).show();
+
+                        }
+                        if (!isButtonClicked) {
+                            // when all the questions are not answered
+                            if (count < 7) {
+                                Toast.makeText(getApplicationContext(), "You need to answer all the questions", Toast.LENGTH_SHORT).show();
+
+                            } else {
+                                // when all the questions are answered
+                                isButtonClicked = true;
+                                displayScore(baseScore);
+                                Toast.makeText(MainActivity.this, "Correct Answers:" + baseScore + " /7",
+                                        Toast.LENGTH_LONG).show();
+                            }
+                        } else {
+                            // refresh activity
+                            Intent intent = getIntent();
+                            finish();
+                            startActivity(intent);
+                        }
                     }
-                }else{
-                    // refresh activity
-                    Intent intent = getIntent();
-                    finish();
-                    startActivity(intent);
-                }
+                });
+
+                /**
+                 * This method is called when the submitAnswer button is clicked.
+                 */
             }
-        });
 
-        /**
-         * This method is called when the submitAnswer button is clicked.
-         */
-    }
-        public void displayScore (int score){
+            public void displayScore(int score) {
 
-            scoreView.setText(String.valueOf(score));
+                scoreView.setText(String.valueOf(score));
+            }
         }
-
-   }
-
-
 
 
 
