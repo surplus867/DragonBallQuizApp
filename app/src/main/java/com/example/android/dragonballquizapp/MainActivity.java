@@ -27,8 +27,6 @@ public class MainActivity extends AppCompatActivity {
     RadioGroup rg3;
     RadioGroup rg4;
     RadioGroup rg5;
-    // String Question
-    String question = "In the 21st World Martial Arts Tournment,who beats Goku in the final?";
     // String Answer
     String answer = "Jackie Chun";
     // Check Boxes
@@ -36,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
     CheckBox   chk2;
     CheckBox   chk3;
     CheckBox   chk4;
+    // Edit
+    EditText  userAnswer;
     // Submit Button
     Button btn1;
     // Score TextView
@@ -61,10 +61,9 @@ public class MainActivity extends AppCompatActivity {
         chk3 = (CheckBox) findViewById(R.id.chk3);
         chk4 = (CheckBox) findViewById(R.id.chk4);
         //
-        final EditText userAnswer = (EditText) findViewById(R.id.user_answer);
-        final String answer = userAnswer.getText().toString();
+        userAnswer = (EditText) findViewById(R.id.user_answer);
         // SubmitAnswer Button
-        Button btn1 = (Button) findViewById(R.id.btn1);
+        btn1 = (Button) findViewById(R.id.btn1);
         // Score TextView
         scoreView = (TextView) findViewById(R.id.score_text_view);
         //------------------------------------------------------------------------------------------
@@ -173,11 +172,13 @@ public class MainActivity extends AppCompatActivity {
           userAnswer.setOnClickListener(new View.OnClickListener() {
               @Override
               public void onClick(View v) {
+                  answer= userAnswer.getText().toString();
                   count++;
-                  if ("Jackie Chun".equals(answer)) {
+                  if ("Jackie Chun".equalsIgnoreCase(answer)) {
                       baseScore++;
                   }else {
                       baseScore--;
+                      Toast.makeText(getApplicationContext(), "You need to answer all the questions", Toast.LENGTH_SHORT).show();
 
                   }
               }
