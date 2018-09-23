@@ -164,9 +164,14 @@ public class MainActivity extends AppCompatActivity {
         //------------------------------------------------------------------------------------------
         //  Question 6 - Correct Answer is "Jackie Chun"
         //------------------------------------------------------------------------------------------
+        userAnswer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                count++;
+                Toast.makeText(getApplicationContext(), "Edit Text Clicked", Toast.LENGTH_SHORT).show();
 
-          count++;
-
+                }
+                });
 
         //------------------------------------------------------------------------------------------
         //  Question 7 - Correct Answer is "Kamehameha"
@@ -175,15 +180,40 @@ public class MainActivity extends AppCompatActivity {
               @Override
               public void onClick(View v) {
                   count++;
-                  if(chk1.isChecked()) {
-                      baseScore++;
-                  }
-                  else if (!chk1.isChecked())
-                  {
-                      baseScore--;
-                  }
+                  baseScore++;
               }
           });
+
+        chk2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                count++;
+
+                baseScore--;
+                }
+
+        });
+
+        chk3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                count++;
+
+                baseScore--;
+            }
+
+        });
+
+        chk4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                count++;
+                Toast.makeText(getApplicationContext(), "Checked 4 Clicks", Toast.LENGTH_SHORT).show();
+                baseScore--;
+            }
+
+        });
+
 
         //------------------------------------------------------------------------------------------
         //  Submit Answers Button
@@ -192,16 +222,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // when the submitAnswer button has not been clicked yet
-                userAnswer.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        answer = userAnswer.getText().toString();
-
-                        if ("Jackie Chun".equalsIgnoreCase(answer)) {
+                answer = userAnswer.getText().toString();
+                if ("Jackie Chun".equalsIgnoreCase(answer)) {
                             baseScore++;
                         } else {
                             baseScore--;
-                            Toast.makeText(getApplicationContext(), "You need to answer all the questions", Toast.LENGTH_SHORT).show();
 
                         }
                         if (!isButtonClicked) {
@@ -219,8 +244,8 @@ public class MainActivity extends AppCompatActivity {
                         } else {
                             // refresh activity
                             Intent intent = getIntent();
-                            finish();
                             startActivity(intent);
+                            finish();
                         }
                     }
                 });
