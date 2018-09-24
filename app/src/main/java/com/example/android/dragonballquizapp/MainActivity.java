@@ -21,9 +21,9 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     // Track the score of the quiz
-    int baseScore ;
+    int baseScore;
     // Track the count of the score
-    int count ;
+    int count;
     // Radio Groups
     RadioGroup rg1;
     RadioGroup rg2;
@@ -63,9 +63,8 @@ public class MainActivity extends AppCompatActivity {
         chk2 = (CheckBox) findViewById(R.id.chk2);
         chk3 = (CheckBox) findViewById(R.id.chk3);
         chk4 = (CheckBox) findViewById(R.id.chk4);
-        //
         userAnswer = (EditText) findViewById(R.id.user_answer);
-        baseScore =0;
+        baseScore = 0;
         count = 0;
         // SubmitAnswer Button
         btn1 = (Button) findViewById(R.id.btn1);
@@ -187,7 +186,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-             count++;
+                count++;
                 Log.i("MainActivity", " count the math" + String.valueOf(count));
             }
 
@@ -261,9 +260,9 @@ public class MainActivity extends AppCompatActivity {
                             }
                         } else {
                             // refresh activity
-                            finish();
                             Intent intent = getIntent();
                             startActivity(intent);
+                            finish();
 
                         }
                     }
