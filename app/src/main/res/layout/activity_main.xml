@@ -310,16 +310,12 @@
     <EditText
         android:id="@+id/user_answer"
         style="@style/editTextEntryAnswer"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:hint="@string/type_your_answer_here"
         android:layout_marginEnd="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:hint="@string/type_your_answer_here"
-        android:clickable="true"
-        android:focusable="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/question_6_text_view" />
@@ -339,8 +335,7 @@
 
     <CheckBox
         android:id="@+id/chk1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/CheckBoxStyle"
         android:layout_marginEnd="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
@@ -354,9 +349,7 @@
 
     <CheckBox
         android:id="@+id/chk2"
-        style="@style/RadioButtonStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/CheckBoxStyle"
         android:layout_marginEnd="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
@@ -370,8 +363,7 @@
 
     <CheckBox
         android:id="@+id/chk3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/CheckBoxStyle"
         android:layout_marginEnd="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
@@ -385,8 +377,7 @@
 
     <CheckBox
         android:id="@+id/chk4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/CheckBoxStyle"
         android:layout_marginEnd="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"

@@ -9,7 +9,7 @@
         <!-- Theme UI controls like checkboxes and text fields -->
         <item name = "colorAccent">#536DFE</item>
     </style>
-    <!-- Style for a radio button in the quiz -->
+    <!-- Style for  radio buttons' question 1-5 on the quiz -->
     <style name="RadioButtonStyle" >
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -22,12 +22,23 @@
     <item name="android:layout_height">wrap_content</item>
     <item name="android:textSize">16sp</item>
     </style>
+    <!-- Style for question 7's optional answers  on the quiz -->
+    <style name="CheckBoxStyle">
+        <item name="android:layout_width">wrap_content</item>
+      <item name="android:layout_height">wrap_content</item>
+      <item name="android:textSize">16sp</item>
+    </style>
 
     <style name="editTextEntryAnswer">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
         <item name="android:maxLines">1</item>
-        <item name="android:minLines">1</item>
         <item name="android:lines">1</item>
         <item name="android:layout_gravity">left</item>
+        <item name="android:inputType">text</item>
+        <item name="android:focusable">true</item>
+        <item name="android:clickable">true</item>
+        <item name="android:singleLine">true</item>
     </style>
    
 </resources>

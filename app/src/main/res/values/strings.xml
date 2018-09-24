@@ -33,9 +33,9 @@
     <!-- Question 5 -->
     <string name="q5_who_kills_goku_for_the_first_time">Q5. Who kills Goku for the first time?</string>
     <!-- Select the correct answer for question 5 -->
-    <string name="piccolo">piccolo</string>
+    <string name="piccolo">Piccolo</string>
     <string name="krillin">Krillin</string>
-    <string name="tien_shinhan">Tien_Shinhan</string>
+    <string name="tien_shinhan">Tien Shinhan</string>
     <string name="king_chappa">King Chappa</string>
     <!-- Question 6 -->
     <string name="q6_in_the_21st_world_martial_arts_tournament_who_beats_goku_in_the_final">Q6. In the 21st World Martial Arts Tournament, who beats Goku in the final?</string>
@@ -44,7 +44,7 @@
     <!-- Question 7 -->
     <string name="q7_what_is_the_first_energy_technique_that_goku_ever_learns">Q7. What is the first energy technique that Goku ever learns?</string>
     <!-- Select the correct answer for question 7 -->
-    <string name="kamehameha">kamehameha</string>
+    <string name="kamehameha">Kamehameha</string>
     <string name="spirit_bomb">Spirit Bomb</string>
     <string name="kaio_ken">Kaio Ken</string>
     <string name="galick_gun">Galick Gun</string>
