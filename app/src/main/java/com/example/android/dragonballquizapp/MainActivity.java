@@ -4,6 +4,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -76,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
                 // checkedId is the RadioButton selected
                 RadioButton rb = (RadioButton) findViewById(checkedId);
                 count++;
+                Log.i("MainActivity", " count the math" + String.valueOf(count));
                 // if the selected answer is "Majin Vegeta"
                 if (rb.getText().equals(getResources().getString(R.string.majin_vegeta))) {
                     // increase the baseScore by 1 point
@@ -83,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
                     // if the wrong answer is selected
                 } else {
                     // decrease the baseScore by 1 point
-                    baseScore--;
+                    baseScore = 0;
                 }
             }
         });
@@ -95,6 +99,7 @@ public class MainActivity extends AppCompatActivity {
                 // checkedId is the RadioButton selected
                 RadioButton rb = (RadioButton) findViewById(checkedId);
                 count++;
+                Log.i("MainActivity", " count the math" + String.valueOf(count));
                 // if the selected answer is "Instant Transmission"
                 if (rb.getText().equals(getResources().getString(R.string.instant_transmission))) {
                     // increase the baseScore by 1 point
@@ -102,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
                     // if the wrong answer is selected
                 } else {
                     // decrease the baseScore by 1 point
-                    baseScore--;
+                    baseScore = 0;
                 }
             }
         });
@@ -114,6 +119,7 @@ public class MainActivity extends AppCompatActivity {
                 // checkedId is the RadioButton selected
                 RadioButton rb = (RadioButton) findViewById(checkedId);
                 count++;
+                Log.i("MainActivity", " count the math" + String.valueOf(count));
                 // if the selected answer is "Frieza"
                 if (rb.getText().equals(getResources().getString(R.string.frieza))) {
                     // increase the baseScore by 1 point
@@ -121,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
                     // if the wrong answer is selected
                 } else {
                     // decrease the baseScore by 1 point
-                    baseScore--;
+                    baseScore = 0;
                 }
             }
         });
@@ -133,6 +139,7 @@ public class MainActivity extends AppCompatActivity {
                 // checkedId is the RadioButton selected
                 RadioButton rb = (RadioButton) findViewById(checkedId);
                 count++;
+                Log.i("MainActivity", " count the math" + String.valueOf(count));
                 // if the selected answer is "Recoome"
                 if (rb.getText().equals(getResources().getString(R.string.recoome))) {
                     // increase the baseScore by 1 point
@@ -140,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
                     // if the wrong answer is selected
                 } else {
                     // decrease the baseScore by 1 point
-                    baseScore--;
+                    baseScore = 0;
                 }
             }
         });
@@ -152,6 +159,7 @@ public class MainActivity extends AppCompatActivity {
                 // checkedId is the RadioButton selected
                 RadioButton rb = (RadioButton) findViewById(checkedId);
                 count++;
+                Log.i("MainActivity", " count the math" + String.valueOf(count));
                 // if the selected answer is "Piccolo"
                 if (rb.getText().equals(getResources().getString(R.string.piccolo))) {
                     // increase the baseScore by 1 point
@@ -159,63 +167,47 @@ public class MainActivity extends AppCompatActivity {
                     // if the wrong answer is selected
                 } else {
                     // decrease the baseScore by 1 point
-                    baseScore--;
+                    baseScore = 0;
                 }
             }
         });
         //------------------------------------------------------------------------------------------
         //  Question 6 - Correct Answer is "Jackie Chun"
         //------------------------------------------------------------------------------------------
-        userAnswer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                count++;
-                Toast.makeText(getApplicationContext(),String.valueOf(count), Toast.LENGTH_SHORT).show();
 
-                }
-                });
+        userAnswer.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+              count++;
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+
+        });
+
+
+
 
         //------------------------------------------------------------------------------------------
         //  Question 7 - Correct Answer is "Kamehameha"
         //------------------------------------------------------------------------------------------
-          chk1.setOnClickListener(new View.OnClickListener() {
+       chk1.setOnClickListener(new View.OnClickListener() {
               @Override
               public void onClick(View v) {
                   count++;
+                  Log.i("MainActivity", " count the math" + String.valueOf(count));
                   baseScore++;
+                  Log.i("MainActivity", " count the math");
               }
           });
-
-        chk2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                count++;
-
-                baseScore--;
-                }
-
-        });
-
-        chk3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                count++;
-
-                baseScore--;
-            }
-
-        });
-
-        chk4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                count++;
-                Toast.makeText(getApplicationContext(), "Checked 4 Clicks", Toast.LENGTH_SHORT).show();
-                baseScore--;
-            }
-
-        });
-
 
         //------------------------------------------------------------------------------------------
         //  Submit Answers Button
@@ -232,10 +224,10 @@ public class MainActivity extends AppCompatActivity {
 
                             } else {
 
-                                if (answer.equalsIgnoreCase("Jackie Chun")) {
+                                if ("Jackie Chun".equalsIgnoreCase(answer)) {
                                     baseScore++;
                                 } else {
-                                    baseScore--;
+                                    baseScore = 0;
 
                                 }
 
@@ -247,9 +239,10 @@ public class MainActivity extends AppCompatActivity {
                             }
                         } else {
                             // refresh activity
+                            finish();
                             Intent intent = getIntent();
                             startActivity(intent);
-                            finish();
+
                         }
                     }
                 });
