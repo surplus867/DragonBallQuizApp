@@ -21,9 +21,16 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     // Track the score of the quiz
-    int baseScore;
+    int scoreForQuestionOne;
+    int scoreForQuestionTwo;
+    int scoreForQuestionThree;
+    int scoreForQuestionFour;
+    int scoreForQuestionFive;
+    int scoreForQuestionSix;
+    int scoreForQuestionSeven;
     // Track the count of the score
     int count;
+    int baseScore;
     // Radio Groups
     RadioGroup rg1;
     RadioGroup rg2;
@@ -64,8 +71,8 @@ public class MainActivity extends AppCompatActivity {
         chk3 = (CheckBox) findViewById(R.id.chk3);
         chk4 = (CheckBox) findViewById(R.id.chk4);
         userAnswer = (EditText) findViewById(R.id.user_answer);
-        baseScore = 0;
         count = 0;
+        baseScore = 0;
         // SubmitAnswer Button
         btn1 = (Button) findViewById(R.id.btn1);
         // Score TextView
@@ -82,11 +89,11 @@ public class MainActivity extends AppCompatActivity {
                 // if the selected answer is "Majin Vegeta"
                 if (rb.getText().equals(getResources().getString(R.string.majin_vegeta))) {
                     // increase the baseScore by 1 point
-                    baseScore++;
+                    scoreForQuestionOne = 1;
                     // if the wrong answer is selected
                 } else {
                     // decrease the baseScore by 1 point
-                    baseScore = 0;
+                    scoreForQuestionOne = 0;
                 }
             }
         });
@@ -102,11 +109,11 @@ public class MainActivity extends AppCompatActivity {
                 // if the selected answer is "Instant Transmission"
                 if (rb.getText().equals(getResources().getString(R.string.instant_transmission))) {
                     // increase the baseScore by 1 point
-                    baseScore++;
+                    scoreForQuestionTwo = 1;
                     // if the wrong answer is selected
                 } else {
                     // decrease the baseScore by 1 point
-                    baseScore = 0;
+                    scoreForQuestionTwo = 0;
                 }
             }
         });
@@ -122,11 +129,11 @@ public class MainActivity extends AppCompatActivity {
                 // if the selected answer is "Frieza"
                 if (rb.getText().equals(getResources().getString(R.string.frieza))) {
                     // increase the baseScore by 1 point
-                    baseScore++;
+                    scoreForQuestionThree = 1;
                     // if the wrong answer is selected
                 } else {
                     // decrease the baseScore by 1 point
-                    baseScore = 0;
+                    scoreForQuestionThree = 0;
                 }
             }
         });
@@ -142,11 +149,11 @@ public class MainActivity extends AppCompatActivity {
                 // if the selected answer is "Recoome"
                 if (rb.getText().equals(getResources().getString(R.string.recoome))) {
                     // increase the baseScore by 1 point
-                    baseScore++;
+                    scoreForQuestionFour = 1;
                     // if the wrong answer is selected
                 } else {
                     // decrease the baseScore by 1 point
-                    baseScore = 0;
+                    scoreForQuestionFive = 0;
                 }
             }
         });
@@ -162,11 +169,11 @@ public class MainActivity extends AppCompatActivity {
                 // if the selected answer is "Piccolo"
                 if (rb.getText().equals(getResources().getString(R.string.piccolo))) {
                     // increase the baseScore by 1 point
-                    baseScore++;
+                    scoreForQuestionFive = 1;
                     // if the wrong answer is selected
                 } else {
                     // decrease the baseScore by 1 point
-                    baseScore = 0;
+                    scoreForQuestionFive = 0;
                 }
             }
         });
@@ -199,17 +206,21 @@ public class MainActivity extends AppCompatActivity {
               public void onClick(View v) {
                   count++;
                   Log.i("MainActivity", " count the math" + String.valueOf(count));
-                  baseScore++;
-                  Log.i("MainActivity", " count the math");
-              }
-          });
+                  if (chk1.isChecked() && !chk2.isChecked() && !chk3.isChecked()
+                          && !chk4.isChecked()) {
+                  scoreForQuestionSeven = 1;
+
+                  } else {
+                      // decrease the baseScore by 1 point
+                      scoreForQuestionSeven = 0;
+                  }
+                  }
+              });
 
         chk2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 count++;
-                Log.i("MainActivity", " count the math" + String.valueOf(count));
-                baseScore = 0;
             }
         });
 
@@ -217,8 +228,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 count++;
-                Log.i("MainActivity", " count the math" + String.valueOf(count));
-                baseScore = 0;
             }
         });
 
@@ -226,8 +235,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 count++;
-                Log.i("MainActivity", " count the math" + String.valueOf(count));
-                baseScore = 0;
             }
         });
         //------------------------------------------------------------------------------------------
@@ -241,16 +248,19 @@ public class MainActivity extends AppCompatActivity {
                 if (!isButtonClicked) {
                             // when all the questions are not answered
                             if (count < 7) {
+                                count++;
                                 Toast.makeText(getApplicationContext(), "You need to answer all the questions"+ String.valueOf(count), Toast.LENGTH_SHORT).show();
 
                             } else {
 
                                 if (answer.equalsIgnoreCase("Jackie Chun")) {
-                                    baseScore++;
+                                    scoreForQuestionSix = 1;
                                 } else {
-                                    baseScore = 0;
+                                    scoreForQuestionSix = 0;
 
                                 }
+
+                                baseScore = scoreForQuestionOne + scoreForQuestionTwo +scoreForQuestionThree + scoreForQuestionFour + scoreForQuestionFive + scoreForQuestionSix + scoreForQuestionSeven;
 
                                 // when all the questions are answered
                                 isButtonClicked = true;
@@ -258,26 +268,24 @@ public class MainActivity extends AppCompatActivity {
                                 Toast.makeText(MainActivity.this, "Correct Answers:" + baseScore + " /7",
                                         Toast.LENGTH_LONG).show();
                             }
-                        } else {
-                            // refresh activity
-                            Intent intent = getIntent();
-                            startActivity(intent);
-                            finish();
+                } else {
+                    // refresh activity
+                    Intent intent = getIntent();
+                    startActivity(intent);
+                    finish();
 
-                        }
-                    }
-                });
-
-                /**
-                 * This method is called when the submitAnswer button is clicked.
-                 */
+                }
             }
+        });
 
-            public void displayScore(int score) {
-
-                scoreView.setText(String.valueOf(score));
-            }
-        }
+        /**
+         * This method is called when the submitAnswer button is clicked.
+         */
+    }
+      public void displayScore (int score) {
+        scoreView.setText(String.valueOf(score));
+      }
+}
 
 
 
