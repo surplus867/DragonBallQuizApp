@@ -178,24 +178,20 @@ public class MainActivity extends AppCompatActivity {
         userAnswer.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
             }
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-              count++;
+
             }
 
             @Override
             public void afterTextChanged(Editable s) {
-
+             count++;
+                Log.i("MainActivity", " count the math" + String.valueOf(count));
             }
 
         });
-
-
-
-
         //------------------------------------------------------------------------------------------
         //  Question 7 - Correct Answer is "Kamehameha"
         //------------------------------------------------------------------------------------------
@@ -209,6 +205,32 @@ public class MainActivity extends AppCompatActivity {
               }
           });
 
+        chk2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                count++;
+                Log.i("MainActivity", " count the math" + String.valueOf(count));
+                baseScore = 0;
+            }
+        });
+
+        chk3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                count++;
+                Log.i("MainActivity", " count the math" + String.valueOf(count));
+                baseScore = 0;
+            }
+        });
+
+        chk4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                count++;
+                Log.i("MainActivity", " count the math" + String.valueOf(count));
+                baseScore = 0;
+            }
+        });
         //------------------------------------------------------------------------------------------
         //  Submit Answers Button
         //------------------------------------------------------------------------------------------
@@ -224,7 +246,7 @@ public class MainActivity extends AppCompatActivity {
 
                             } else {
 
-                                if ("Jackie Chun".equalsIgnoreCase(answer)) {
+                                if (answer.equalsIgnoreCase("Jackie Chun")) {
                                     baseScore++;
                                 } else {
                                     baseScore = 0;
