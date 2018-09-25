@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
@@ -20,7 +21,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    // Track the score of the quiz
+    // Question Groups
     int scoreForQuestionOne;
     int scoreForQuestionTwo;
     int scoreForQuestionThree;
@@ -28,8 +29,9 @@ public class MainActivity extends AppCompatActivity {
     int scoreForQuestionFive;
     int scoreForQuestionSix;
     int scoreForQuestionSeven;
-    // Track the count of the score
+    //  The int count
     int count;
+    // The int baseScore
     int baseScore;
     // Radio Groups
     RadioGroup rg1;
@@ -71,7 +73,9 @@ public class MainActivity extends AppCompatActivity {
         chk3 = (CheckBox) findViewById(R.id.chk3);
         chk4 = (CheckBox) findViewById(R.id.chk4);
         userAnswer = (EditText) findViewById(R.id.user_answer);
+        // The int count set to zero
         count = 0;
+        // The int baseSore set to zero
         baseScore = 0;
         // SubmitAnswer Button
         btn1 = (Button) findViewById(R.id.btn1);
@@ -85,7 +89,6 @@ public class MainActivity extends AppCompatActivity {
                 // checkedId is the RadioButton selected
                 RadioButton rb = (RadioButton) findViewById(checkedId);
                 count++;
-                Log.i("MainActivity", " count the math" + String.valueOf(count));
                 // if the selected answer is "Majin Vegeta"
                 if (rb.getText().equals(getResources().getString(R.string.majin_vegeta))) {
                     // increase the baseScore by 1 point
@@ -125,7 +128,6 @@ public class MainActivity extends AppCompatActivity {
                 // checkedId is the RadioButton selected
                 RadioButton rb = (RadioButton) findViewById(checkedId);
                 count++;
-                Log.i("MainActivity", " count the math" + String.valueOf(count));
                 // if the selected answer is "Frieza"
                 if (rb.getText().equals(getResources().getString(R.string.frieza))) {
                     // increase the baseScore by 1 point
@@ -145,7 +147,6 @@ public class MainActivity extends AppCompatActivity {
                 // checkedId is the RadioButton selected
                 RadioButton rb = (RadioButton) findViewById(checkedId);
                 count++;
-                Log.i("MainActivity", " count the math" + String.valueOf(count));
                 // if the selected answer is "Recoome"
                 if (rb.getText().equals(getResources().getString(R.string.recoome))) {
                     // increase the baseScore by 1 point
@@ -165,7 +166,6 @@ public class MainActivity extends AppCompatActivity {
                 // checkedId is the RadioButton selected
                 RadioButton rb = (RadioButton) findViewById(checkedId);
                 count++;
-                Log.i("MainActivity", " count the math" + String.valueOf(count));
                 // if the selected answer is "Piccolo"
                 if (rb.getText().equals(getResources().getString(R.string.piccolo))) {
                     // increase the baseScore by 1 point
@@ -194,7 +194,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable s) {
                 count++;
-                Log.i("MainActivity", " count the math" + String.valueOf(count));
+
             }
 
         });
@@ -205,7 +205,6 @@ public class MainActivity extends AppCompatActivity {
               @Override
               public void onClick(View v) {
                   count++;
-                  Log.i("MainActivity", " count the math" + String.valueOf(count));
                   if (chk1.isChecked() && !chk2.isChecked() && !chk3.isChecked()
                           && !chk4.isChecked()) {
                   scoreForQuestionSeven = 1;
@@ -247,9 +246,10 @@ public class MainActivity extends AppCompatActivity {
                 answer = userAnswer.getText().toString();
                 if (!isButtonClicked) {
                             // when all the questions are not answered
-                            if (count < 7) {
-                                count++;
-                                Toast.makeText(getApplicationContext(), "You need to answer all the questions"+ String.valueOf(count), Toast.LENGTH_SHORT).show();
+                            if (rg1.getCheckedRadioButtonId() == -1 || rg2. getCheckedRadioButtonId() == -1 || rg3.getCheckedRadioButtonId()== -1
+                                    || rg4.getCheckedRadioButtonId() == -1 || (TextUtils.isEmpty(answer) || answer == "Jackie Chun")||
+                            !chk1.isChecked() && !chk2.isChecked() && !chk3.isChecked() && !chk4.isChecked()) {
+                                Toast.makeText(getApplicationContext(), "You need to answer all the questions", Toast.LENGTH_SHORT).show();
 
                             } else {
 
@@ -286,6 +286,5 @@ public class MainActivity extends AppCompatActivity {
         scoreView.setText(String.valueOf(score));
       }
 }
-
 
 
