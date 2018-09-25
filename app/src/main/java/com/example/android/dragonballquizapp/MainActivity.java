@@ -134,7 +134,7 @@ public class MainActivity extends AppCompatActivity {
                     scoreForQuestionThree = 1;
                     // if the wrong answer is selected
                 } else {
-                    // decrease the baseScore by 1 point
+                    // set the baseScore = 0;
                     scoreForQuestionThree = 0;
                 }
             }
