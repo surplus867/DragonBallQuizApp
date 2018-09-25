@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
                     scoreForQuestionOne = 1;
                     // if the wrong answer is selected
                 } else {
-                    // decrease the baseScore by 1 point
+                    // set the baseScore equals to zero
                     scoreForQuestionOne = 0;
                 }
             }
@@ -115,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
                     scoreForQuestionTwo = 1;
                     // if the wrong answer is selected
                 } else {
-                    // decrease the baseScore by 1 point
+                    // set the baseScore equals to zero
                     scoreForQuestionTwo = 0;
                 }
             }
@@ -153,7 +153,7 @@ public class MainActivity extends AppCompatActivity {
                     scoreForQuestionFour = 1;
                     // if the wrong answer is selected
                 } else {
-                    // decrease the baseScore by 1 point
+                    // set the baseScore equals to zero
                     scoreForQuestionFive = 0;
                 }
             }
@@ -172,7 +172,7 @@ public class MainActivity extends AppCompatActivity {
                     scoreForQuestionFive = 1;
                     // if the wrong answer is selected
                 } else {
-                    // decrease the baseScore by 1 point
+                    // set the baseScore equals to zero
                     scoreForQuestionFive = 0;
                 }
             }
@@ -205,12 +205,14 @@ public class MainActivity extends AppCompatActivity {
               @Override
               public void onClick(View v) {
                   count++;
+                  // if the selected answer is "Kamehameha"
                   if (chk1.isChecked() && !chk2.isChecked() && !chk3.isChecked()
                           && !chk4.isChecked()) {
+                  // increase the baseScore by 1 point
                   scoreForQuestionSeven = 1;
 
                   } else {
-                      // decrease the baseScore by 1 point
+                      // set the baseScore equals to zero
                       scoreForQuestionSeven = 0;
                   }
                   }
@@ -252,9 +254,11 @@ public class MainActivity extends AppCompatActivity {
                                 Toast.makeText(getApplicationContext(), "You need to answer all the questions", Toast.LENGTH_SHORT).show();
 
                             } else {
-
+                                // if the user's entry answer is correct
                                 if (answer.equalsIgnoreCase("Jackie Chun")) {
+                                //increase the baseScore by 1 point
                                     scoreForQuestionSix = 1;
+                                // set the baseScore = 0
                                 } else {
                                     scoreForQuestionSix = 0;
 
@@ -286,5 +290,3 @@ public class MainActivity extends AppCompatActivity {
         scoreView.setText(String.valueOf(score));
       }
 }
-
-
